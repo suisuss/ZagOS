@@ -1,14 +1,14 @@
 ENTRY(_start)
  
 SECTIONS {
-    .multiboot :
-        {
-            KEEP(*(.multiboot .multiboot.*))
-            . = ALIGN(4K);
-        }
+    . = 1M;
+	KERNEL_PHYSADDR_START = .;
+
+     .multiboot : ALIGN(4K) {
+        KEEP(*(.multiboot .multiboot.*))
+    }
  
     .text : ALIGN(4K) {
-     
         *(.text)
     }
  

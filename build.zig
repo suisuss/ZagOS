@@ -29,7 +29,7 @@ pub fn build(b: *Builder) void {
     
     const kernel = b.addExecutable("kernel.elf", "src/main.zig");
 
-    kernel.addAssemblyFile("src/_start.s");
+    // kernel.addAssemblyFile("src/_start.s");
     kernel.setTarget(target);
     kernel.setBuildMode(mode);
     kernel.setLinkerScriptPath(.{ .path = "src/linker.ld" });

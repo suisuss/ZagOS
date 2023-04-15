@@ -1,5 +1,5 @@
 const console = @import("console.zig");
- 
+
 const ALIGN = 1 << 0; // 0000 0001 - one left shift zero
 const MEMINFO = 1 << 1; // 0000 0010 - one left shift 1
 const MAGIC = 0x1BADB002; // GRUB magic
@@ -17,9 +17,20 @@ export var multiboot align(4) linksection(".multiboot") = MultibootHeader{
     .checksum = -(MAGIC + FLAGS),
 };
 
+export fn _start() align(4) linksection(".text") callconv(.Naked) noreturn {
+     asm volatile (
+        \\mov $0x1000000, %esp
+        \\push %ebx 
+        \\push %eax  
+        \\call kmain  
+        \\cli
+        \\hlt
+    );
 
-// _start and stack init is in asm stub
+    while (true) {}
 
+}
+ 
  
 export fn kmain() void {
     console.initialize();
