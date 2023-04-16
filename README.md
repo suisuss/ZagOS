@@ -19,7 +19,7 @@ Zig based OS with multiple firmware + bootloader options
 - xorriso
 - grub-mkrescue
 - mtools
-- probably other stuff
+- [OVMF](https://efi.akeo.ie/OVMF/OVMF-X64.zip)
 
 
 ## Setup
