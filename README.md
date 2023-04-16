@@ -1,6 +1,16 @@
 # ZagOS
 
-Bare bones hello world zig based OS
+Zig based OS with multiple firmware + bootloader options
+
+## Supported Firmware Types
+
+- BIOS (SeaBIOS - QEMU default)
+- UEFI (OVMF)
+  
+## Supported Bootloaders
+
+- Grub
+- Limine (Coming)
 
 ## Requirements:
 
